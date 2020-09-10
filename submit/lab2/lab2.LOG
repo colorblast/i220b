@@ -1,0 +1,306 @@
+Script started on 2020-09-10 15:01:30-04:00 [TERM="xterm-256color" TTY="/dev/pts/15" COLUMNS="85" LINES="7"]
+]0;jwong123@remote04: ~/i220b/submit/lab2[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2[01;31m (lab2)[00m$ make
+make: *** No targets specified and no makefile found.  Stop.
+]0;jwong123@remote04: ~/i220b/submit/lab2[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2[01;31m (lab2)[00m$ cd[K[Kcd exercises/hel[K[K[K1-hello-args/
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ ./hr[Kello 
+usage: ./hello NAME...
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ ./hello bart lis a
+hello bart
+hello lisa
+hello (null)
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ gdb hello
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+--Type <RET> for more, q to quit, c to continue without paging--[K--Type <RET> for more, q to quit, c to continue without paging--
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) start bart lisa
+Temporary breakpoint 1 at 0x118b: file hello.c, line 13.
+Starting program: /import/linux/home1/jwong123/projects/i220b/submit/lab2/exercises/1-hello-args/hello bart lisa
+
+Temporary breakpoint 1, main (argc=3, argv=0x7fffffffda08) at hello.c:13
+13	  if (argc == 1) {
+(gdb) l
+8	}
+9	
+10	int 
+11	main(int argc, const char *argv[])
+12	{
+13	  if (argc == 1) {
+14	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+15	    exit(1);
+16	  }
+17	  else {
+(gdb) l 18
+13	  if (argc == 1) {
+14	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+15	    exit(1);
+16	  }
+17	  else {
+18	    for (int i = 1; i <= argc; i++) {
+19	      say_hello(argv[i]);
+20	    }
+21	  }
+22	  return 0;
+(gdb) b say_hello
+Breakpoint 2 at 0x555555555161: file hello.c, line 7.
+(gdb) argc
+Undefined command: "argc".  Try "help".
+(gdb) p argc
+$1 = 3
+(gdb) p argv
+$2 = (const char **) 0x7fffffffda08
+(gdb) p argv[]0]
+$3 = 0x7fffffffdd0c "/import/linux/home1/jwong123/projects/i220b/submit/lab2/exercises/1-hello-args/hello"
+(gdb) p argv[0][1P]1]
+$4 = 0x7fffffffdd61 "bart"
+(gdb) p argv[1][1P]2]
+$5 = 0x7fffffffdd66 "lisa"
+(gdb) b[Kn
+18	    for (int i = 1; i <= argc; i++) {
+(gdb) n
+19	      say_hello(argv[i]);
+(gdb) i[Kp i
+$6 = 1
+(gdb) c
+Continuing.
+
+Breakpoint 2, say_hello (name=0x7fffffffdd61 "bart") at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) l
+2	#include <stdlib.h>
+3	
+4	static void
+5	say_hello(const char *name)
+6	{
+7	  printf("hello %s\n", name);
+8	}
+9	
+10	int 
+11	main(int argc, const char *argv[])
+(gdb) p name
+$7 = 0x7fffffffdd61 "bart"
+(gdb) backtrace
+#0  say_hello (name=0x7fffffffdd61 "bart") at hello.c:7
+#1  0x00005555555551e5 in main (argc=3, argv=0x7fffffffda08) at hello.c:19
+(gdb) bt
+#0  say_hello (name=0x7fffffffdd61 "bart") at hello.c:7
+#1  0x00005555555551e5 in main (argc=3, argv=0x7fffffffda08) at hello.c:19
+(gdb) p argc
+No symbol "argc" in current context.
+(gdb) up
+#1  0x00005555555551e5 in main (argc=3, argv=0x7fffffffda08) at hello.c:19
+19	      say_hello(argv[i]);
+(gdb) p argc
+$8 = 3
+(gdb) p argc[[K[Kv
+$9 = (const char **) 0x7fffffffda08
+(gdb) p i
+$10 = 1
+(gdb) p name
+$11 = '\000' <repeats 32 times>
+(gdb) down[K[K[K[Kdown
+#0  say_hello (name=0x7fffffffdd61 "bart") at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) p name
+$12 = 0x7fffffffdd61 "bart"
+(gdb) c
+Continuing.
+hello bart
+
+Breakpoint 2, say_hello (name=0x7fffffffdd66 "lisa") at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) c
+Continuing.
+hello lisa
+
+Breakpoint 2, say_hello (name=0x0) at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) c
+Continuing.
+hello (null)
+[Inferior 1 (process 2720951) exited normally]
+(gdb) up
+No stack.
+(gdb) p i
+No symbol "i" in current context.
+(gdb) b[Kreverse-con[Kntiu[Knue
+Target exec does not support this command.
+(gdb) reverse-step
+Target exec does not support this command.
+(gdb) i
+"info" must be followed by the name of an info command.
+List of info subcommands:
+
+info address -- Describe where symbol SYM is stored
+info all-registers -- List of all registers and their contents
+info args -- Argument variables of current stack frame
+info auto-load -- Print current status of auto-loaded files
+info auxv -- Display the inferior's auxiliary vector
+info bookmarks -- Status of user-settable bookmarks
+info breakpoints -- Status of specified breakpoints (all user-settable breakpoints if no argument)
+info checkpoints -- IDs of currently known checkpoints
+info classes -- All Objective-C classes
+info common -- Print out the values contained in a Fortran COMMON block
+info copying -- Conditions for redistributing copies of GDB
+info dcache -- Print information on the dcache performance
+info display -- Expressions to display when program stops
+info exceptions -- List all Ada exception names
+info extensions -- All filename extensions associated with a source language
+info files -- Names of targets and files being debugged
+info float -- Print the status of the floating point unit
+info frame -- All about selected stack frame
+info frame-filter -- List all registered Python frame-filters
+info functions -- All function names
+info guile -- Prefix command for Guile info displays
+info handle -- What debugger does when program gets various signals
+info inferiors -- Print a list of inferiors being managed
+info line -- Core addresses of the code for a source line
+info locals -- Local variables of current stack frame
+info macro -- Show the definition of MACRO
+info macros -- Show the definitions of all macros at LINESPEC
+info mem -- Memory region attributes
+info os -- Show OS data ARG
+info pretty-printer -- GDB command to list all registered pretty-printers
+info probes -- Show available static probes
+info proc -- Show /proc process information about any running process
+info program -- Execution status of the program
+info record -- Info record options
+info registers -- List of integer registers and their contents
+info scope -- List the variables local to a scope
+info selectors -- All Objective-C selectors
+info set -- Show all GDB settings
+--Type <RET> for more, q to quit, c to continue without paging--q[Kq
+Quit
+(gdb) p argc
+No symbol "argc" in current context.
+(gdb) p i
+No symbol "i" in current context.
+(gdb) down
+No stack.
+(gdb) p argc
+No symbol "argc" in current context.
+(gdb) up
+No stack.
+(gdb) up
+No stack.
+(gdb) p [K[Kdown
+No stack.
+(gdb) down
+No stack.
+(gdb) down
+No stack.
+(gdb) up
+No stack.
+(gdb) q
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ [K]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ ./hello 
+usage: ./hello NAME...
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ ./e[Kge[K[Kg[Khello bart lis a
+hello bart
+hello lisa
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/1-hello-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/1-hello-args[01;31m (lab2)[00m$ cd ..
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises[01;31m (lab2)[00m$ cd 2-hello-upcase-args/
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ ./hello i sa bart[K[A]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ ./hello isa bart
+Hello Isa
+Hello Bart
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ ./hello " Marge Sim[K[K[K[K[K[K[K[K[Kmarge simpson'[K" "bart simpson"
+Hello Marge SimpsonU
+Hello Bart Simpson¥U
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ gdb ./hel lo 
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./hello...done.
+(gdb) start "marge simpson" "bart simpson"
+Temporary breakpoint 1 at 0x12be: file hello.c, line 35.
+Starting program: /import/linux/home1/jwong123/projects/i220b/submit/lab2/exercises/2-hello-upcase-args/hello "marge simpson" "bart simpson"
+
+Temporary breakpoint 1, main (argc=3, argv=0x7fffffffd9d8) at hello.c:35
+35	  if (argc == 1) {
+(gdb) [K(gdb) [K(gdb) [K(gdb) [K(gdb) b [K(gdb) b upcase_words
+Breakpoint 2 at 0x555555555195: file hello.c, line 13.
+(gdb) c
+Continuing.
+
+Breakpoint 2, upcase_words (in=0x7fffffffdd37 "marge simpson", 
+    out=0x7fffffffd880 "\001") at hello.c:13
+13	  int inWord = 0;
+(gdb) p argc
+No symbol "argc" in current context.
+(gdb) up
+#1  0x0000555555555384 in main (argc=3, argv=0x7fffffffd9d8) at hello.c:43
+43	      upcase_words(name, friendlyName);
+(gdb) p argc
+$1 = 3
+(gdb) p argv[]2]
+$2 = 0x7fffffffdd45 "bart simpson"
+(gdb) down
+#0  upcase_words (in=0x7fffffffdd37 "marge simpson", out=0x7fffffffd880 "\001")
+    at hello.c:13
+13	  int inWord = 0;
+(gdb) p in
+$3 = 0x7fffffffdd37 "marge simpson"
+(gdb) p out
+$4 = 0x7fffffffd880 "\001"
+(gdb) p inWord
+$5 = 0
+(gdb) p n
+$6 = 0
+(gdb) b 14
+Breakpoint 3 at 0x55555555519c: file hello.c, line 14.
+(gdb) c
+Continuing.
+
+Breakpoint 3, upcase_words (in=0x7fffffffdd37 "marge simpson", 
+    out=0x7fffffffd880 "\001") at hello.c:14
+14	  int n = strlen(in);
+(gdb) p n
+$7 = 0
+(gdb) n
+15	  for (int i = 0; i < n; i++) {
+(gdb) p n
+$8 = 13
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 2724288] will be killed.
+
+Quit anyway? (y or n) y
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ makegdb ./hello [A]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ ./hello "marge simpson" "bart simpson"
+Hello Marge Simpson
+Hello Bart Simpson
+]0;jwong123@remote04: ~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;32mjwong123@remote04[00m:[01;34m~/i220b/submit/lab2/exercises/2-hello-upcase-args[01;31m (lab2)[00m$ exit
+
+Script done on 2020-09-10 15:22:30-04:00 [COMMAND_EXIT_CODE="0"]
