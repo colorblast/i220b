@@ -16,7 +16,7 @@ $(TARGET): hamming.o main.o
 
 .PHONY: clean
 clean:
-	rm -f *.o $(PROJECT) $(PROJECT).tar.gz
+	rm -f *.o $(PROJECT)
 
 depend:
 	$(CC) -MM  $(CPPFLAGS) *.c
