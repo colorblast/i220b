@@ -2,5 +2,7 @@ Name:		Jonathan Wong
 B-Number:	B00762447
 Email:		jwong123@binghamton.edu
 
-Add text here as needed.
+This is a hamming encoder and decoder. This encoding is used to prevent data loss.
+
+It should pass all test cases that were provided in the log file, and has been tested on school servers.
 
