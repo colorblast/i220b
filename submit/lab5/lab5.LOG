@@ -1,0 +1,348 @@
+Script started on 2020-10-01 14:44:39-04:00 [TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="85" LINES="10"]
+]0;jwong123@remote01: ~/i220b/submit/lab5[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5[01;31m (lab5)[00m$ cd[K[Kcd ~/cs220
+]0;jwong123@remote01: ~/cs220[01;32mjwong123@remote01[00m:[01;34m~/cs220[01;31m (master)[00m$ git pull
+Already up to date.
+]0;jwong123@remote01: ~/cs220[01;32mjwong123@remote01[00m:[01;34m~/cs220[01;31m (master)[00m$ cd i2[K[K~/i220b/
+.git/   submit/ 
+]0;jwong123@remote01: ~/cs220[01;32mjwong123@remote01[00m:[01;34m~/cs220[01;31m (master)[00m$ cd ~/i220b/submit/lab5/
+]0;jwong123@remote01: ~/i220b/submit/lab5[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5[01;31m (lab5)[00m$ ls
+lab5.LOG
+]0;jwong123@remote01: ~/i220b/submit/lab5[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5[01;31m (lab5)[00m$ git pull[K[K[K[K[K[K[K[Kcp -pr ~/cs220/`[K
+announce/       bin/            .gitignore      index.umt       projects/
+announce.html   docs/           hws/            labs/           README.md
+announce.umt    exercises/      index/          local-umt.make  slides/
+assets/         .git/           index.html      misc/           umt.make
+]0;jwong123@remote01: ~/i220b/submit/lab5[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5[01;31m (lab5)[00m$ cp -pr ~/cs220/labs/lab5/exercises/ .
+]0;jwong123@remote01: ~/i220b/submit/lab5[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5[01;31m (lab5)[00m$ cd ~/i220b/[K[K[K[K[K[K[K[K[K[K[Kls
+[0m[01;34mexercises[0m  lab5.LOG
+]0;jwong123@remote01: ~/i220b/submit/lab5[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5[01;31m (lab5)[00m$ cd exercises/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ ls
+[0m[01;34m1-uints[0m  [01;34m2-ints[0m  [01;34m3-identify[0m  [01;34m4-negeq[0m  [01;34m6-inexact[0m  [01;34m7-nan[0m  [01;34m8-ulp[0m  [01;34m9-loop[0m
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd 1-uints/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/1-uints[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/1-uints[01;31m (lab5)[00m$ ls
+Makefile  uints.c
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/1-uints[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/1-uints[01;31m (lab5)[00m$ make
+cc -g -Wall -std=c11    uints.c   -o uints
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/1-uints[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/1-uints[01;31m (lab5)[00m$ ./uints 
+65535
+uint = 65535 (0xffff); ushort = 65535 (0xffff)
+65536
+uint = 65536 (0x10000); ushort = 0 (0x0)
+65537
+uint = 65537 (0x10001); ushort = 1 (0x1)
+4294967295
+uint = 4294967295 (0xffffffff); ushort = 65535 (0xffff)
+4294967296
+uint = 0 (0x0); ushort = 0 (0x0)
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/1-uints[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/1-uints[01;31m (lab5)[00m$ cd 2-[K[K[K[K[Kcd ..
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd 2-ints/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/2-ints[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/2-ints[01;31m (lab5)[00m$ ls
+ints.c  Makefile
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/2-ints[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/2-ints[01;31m (lab5)[00m$ make
+cc -g -Wall -std=c11    ints.c   -o ints
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/2-ints[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/2-ints[01;31m (lab5)[00m$ ./ints 
+32768
+int = 32768 (0x8000); short = -32768 (0xffff8000)
+326 767
+int = 32767 (0x7fff); short = 32767 (0x7fff)
+ 2147483648
+int = -2147483648 (0x80000000); short = 0 (0x0)
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/2-ints[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/2-ints[01;31m (lab5)[00m$ cd ..
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd la[K[K3-identify/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/3-identify[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/3-identify[01;31m (lab5)[00m$ ls
+identify.c  Makefile  mystery.h  mystery.o
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/3-identify[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/3-identify[01;31m (lab5)[00m$ make
+cc -g -Wall -std=c11   -c -o identify.o identify.c
+cc   identify.o mystery.o   -o identify
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/3-identify[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/3-identify[01;31m (lab5)[00m$ ./ind[K[Kdentify 
+32768
+mystery = 206696 (0x32768)
+5
+mystery = 5 (0x5)
+100
+mystery = 256 (0x100)
+a
+mystery = 10 (0xa)
+aaa
+mystery = 2730 (0xaaa)
+f
+mystery = 15 (0xf)
+10
+mystery = 16 (0x10)
+a0
+mystery = 160 (0xa0)
+aa0
+mystery = 2720 (0xaa0)
+a00
+mystery = 2560 (0xa00)
+000
+mystery = 0 (0x0)
+100
+mystery = 256 (0x100)
+200
+mystery = 512 (0x200)
+1111111111
+mystery = 1118481 (0x111111)
+11111 
+mystery = 4369 (0x1111)
+^[[A    11111
+mystery = 69905 (0x11111)
+111111
+mystery = 1118481 (0x111111)
+^[[A    1111111
+mystery = 1118481 (0x111111)
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/3-identify[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/3-identify[01;31m (lab5)[00m$ cd ..
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd 4-negeq/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/4-negeq[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/4-negeq[01;31m (lab5)[00m$ make
+cc -g -Wall -std=c11    negeq.c   -o negeq
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/4-negeq[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/4-negeq[01;31m (lab5)[00m$ ./negeq 
+2147483648
+1195914824 != -1195914824
+-2147483648
+-1195914824 != --1195914824
+65536
+415030 != -415030
+4294967295
+-1802079595 != --1802079595
+^[[A    4294967296
+-1802079594 != --1802079594
+2147483648
+1195914824 != -1195914824
+-2147483648
+-1195914824 != --1195914824
+65  -65536
+-415030 != --415030
+0
+0 == -0
+done
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/4-negeq[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/4-negeq[01;31m (lab5)[00m$ ./negeq 
+2147    80000000
+-2147483648 == --2147483648
+done
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/4-negeq[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/4-negeq[01;31m (lab5)[00m$ cd ..
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd 5-[K[K
+1-uints/    3-identify/ 6-inexact/  8-ulp/      
+2-ints/     4-negeq/    7-nan/      9-loop/     
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd [K[K[Kpython
+Python 2.7.16 (default, Oct 10 2019, 22:02:15) 
+[GCC 8.3.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 10*1000 -1
+9999
+>>> 10*1000 -1 [K[K 1.0
+9999.0
+>>> 
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd ..[K[Klab[K[K[K6-inexact/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/6-inexact[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/6-inexact[01;31m (lab5)[00m$ make
+cc -g -Wall -std=c11    0.1.c   -o 0.1
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/6-inexact[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/6-inexact[01;31m (lab5)[00m$ ./0.1 
+0.99999999999999988898 0
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/6-inexact[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/6-inexact[01;31m (lab5)[00m$ cd ..
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd 7-nan/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/7-nan[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/7-nan[01;31m (lab5)[00m$ make
+cc -g -Wall -std=c11    nan.c   -o nan
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/7-nan[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/7-nan[01;31m (lab5)[00m$ ./7[Knan 
+NaN
+x = nan
+n nan
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/7-nan[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/7-nan[01;31m (lab5)[00m$ cd ..
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd 8
+bash: cd: 8: No such file or directory
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd 8-ulp/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ ls
+Makefile  ulp.c  ulp.gp  ulp-lg.gp
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ make
+cc -g -Wall -std=c11    ulp.c  -lm -o ulp
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ .[K./ulp 
+usage ./ulp data|lg-data|verbose
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ ./ulp verbose
+v = 0x1 (1), ulp = 1.1920928955078e-07
+v = 0x2 (2), ulp = 2.3841857910156e-07
+v = 0x4 (4), ulp = 4.7683715820312e-07
+v = 0x8 (8), ulp = 9.5367431640625e-07
+v = 0x10 (16), ulp = 1.9073486328125e-06
+v = 0x20 (32), ulp = 3.814697265625e-06
+v = 0x40 (64), ulp = 7.62939453125e-06
+v = 0x80 (128), ulp = 1.52587890625e-05
+v = 0x100 (256), ulp = 3.0517578125e-05
+v = 0x200 (512), ulp = 6.103515625e-05
+v = 0x400 (1024), ulp = 0.0001220703125
+v = 0x800 (2048), ulp = 0.000244140625
+v = 0x1000 (4096), ulp = 0.00048828125
+v = 0x2000 (8192), ulp = 0.0009765625
+v = 0x4000 (16384), ulp = 0.001953125
+v = 0x8000 (32768), ulp = 0.00390625
+v = 0x10000 (65536), ulp = 0.0078125
+v = 0x20000 (131072), ulp = 0.015625
+v = 0x40000 (262144), ulp = 0.03125
+v = 0x80000 (524288), ulp = 0.0625
+v = 0x100000 (1.04858e+06), ulp = 0.125
+v = 0x200000 (2.09715e+06), ulp = 0.25
+v = 0x400000 (4.1943e+06), ulp = 0.5
+v = 0x800000 (8.38861e+06), ulp = 1
+v = 0x1000000 (1.67772e+07), ulp = 2
+v = 0x2000000 (3.35544e+07), ulp = 4
+v = 0x4000000 (6.71089e+07), ulp = 8
+v = 0x8000000 (1.34218e+08), ulp = 16
+v = 0x10000000 (2.68435e+08), ulp = 32
+v = 0x20000000 (5.36871e+08), ulp = 64
+v = 0x40000000 (1.07374e+09), ulp = 128
+v = 0x80000000 (2.14748e+09), ulp = 256
+v = 0x100000000 (4.29497e+09), ulp = 512
+v = 0x200000000 (8.58993e+09), ulp = 1024
+v = 0x400000000 (1.71799e+10), ulp = 2048
+v = 0x800000000 (3.43597e+10), ulp = 4096
+v = 0x1000000000 (6.87195e+10), ulp = 8192
+v = 0x2000000000 (1.37439e+11), ulp = 16384
+v = 0x4000000000 (2.74878e+11), ulp = 32768
+v = 0x8000000000 (5.49756e+11), ulp = 65536
+v = 0x10000000000 (1.09951e+12), ulp = 131072
+v = 0x20000000000 (2.19902e+12), ulp = 262144
+v = 0x40000000000 (4.39805e+12), ulp = 524288
+v = 0x80000000000 (8.79609e+12), ulp = 1048576
+v = 0x100000000000 (1.75922e+13), ulp = 2097152
+v = 0x200000000000 (3.51844e+13), ulp = 4194304
+v = 0x400000000000 (7.03687e+13), ulp = 8388608
+v = 0x800000000000 (1.40737e+14), ulp = 16777216
+v = 0x1000000000000 (2.81475e+14), ulp = 33554432
+v = 0x2000000000000 (5.6295e+14), ulp = 67108864
+v = 0x4000000000000 (1.1259e+15), ulp = 134217728
+v = 0x8000000000000 (2.2518e+15), ulp = 268435456
+v = 0x10000000000000 (4.5036e+15), ulp = 536870912
+v = 0x20000000000000 (9.0072e+15), ulp = 1073741824
+v = 0x40000000000000 (1.80144e+16), ulp = 2147483648
+v = 0x80000000000000 (3.60288e+16), ulp = 4294967296
+v = 0x100000000000000 (7.20576e+16), ulp = 8589934592
+v = 0x200000000000000 (1.44115e+17), ulp = 17179869184
+v = 0x400000000000000 (2.8823e+17), ulp = 34359738368
+v = 0x800000000000000 (5.76461e+17), ulp = 68719476736
+v = 0x1000000000000000 (1.15292e+18), ulp = 137438953472
+v = 0x2000000000000000 (2.30584e+18), ulp = 274877906944
+v = 0x4000000000000000 (4.61169e+18), ulp = 549755813888
+v = 0x8000000000000000 (9.22337e+18), ulp = 1099511627776
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ ./ulp data > ulp.data
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ gnuplot -p ulp.gp
+03:22:32 PM: Error: Unable to initialize GTK+, is DISPLAY set properly?
+Failed to initialize wxWidgets.
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ set terminal dumb;
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ set terminal dumb;[1Pgnuplot -p ulp.gp
+03:22:47 PM: Error: Unable to initialize GTK+, is DISPLAY set properly?
+Failed to initialize wxWidgets.
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ em[K[Kgnuplot -p ulp.gp
+03:23:23 PM: Error: Unable to initialize GTK+, is DISPLAY set properly?
+Failed to initialize wxWidgets.
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ gnuplot -p ulp.gp
+                                                                               
+     1.2e+12 +-------------------------------------------------------------+   
+             |     +     +      +     +     +     +     +      +     +     |   
+             |                                          "ulp.data"    A    |   
+       1e+12 |-+                                                         +-|   
+             |                                                             |   
+             |                                                             |   
+       8e+11 |-+                                                         +-|   
+             |                                                             |   
+             |                                                             |   
+       6e+11 |-+                                                         +-|   
+             |                            A                                |   
+             |                                                             |   
+             |                                                             |   
+       4e+11 |-+                                                         +-|   
+             |                                                             |   
+             |             A                                               |   
+       2e+11 |-+                                                         +-|   
+             |      A                                                      |   
+             | A A +     +      +     +     +     +     +      +     +     |   
+           0 +-------------------------------------------------------------+   
+             0   1e+18 2e+18  3e+18 4e+18 5e+18 6e+18 7e+18  8e+18 9e+18 1e+19 
+                                          value                                
+                                                                               
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ [K]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ ./ulp lg-data > ulp-lg. data
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ [K]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ ./ulp lg-data > ulp-lg.data[A]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ [6Pgnuplot -p ulp.gp
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-.gpl.gpg.gp[C.gp
+line 0: Cannot open script file 'ulp-lg..gp'
+
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ gnuplot -p ulp-lg..gp[K[K[Kgp 
+                                                                               
+         40 +--------------------------------------------------------------+   
+            |        +        +        +        +        +      AAAA       |   
+            |                                        "ulp-lg.AAAa"    A    |   
+         30 |-+                                           AAA            +-|   
+            |                                         AAAA                 |   
+         20 |-+                                    AAA                   +-|   
+            |                                   AAA                        |   
+            |                               AAAA                           |   
+         10 |-+                          AAAA                            +-|   
+            |                        AAAA                                  |   
+            |                      AA                                      |   
+          0 |-+                AAAA                                      +-|   
+            |              AAAA                                            |   
+            |            AA                                                |   
+        -10 |-+      AAAA                                                +-|   
+            |    AAAA                                                      |   
+        -20 |-+AAA                                                       +-|   
+            |AA                                                            |   
+            |        +        +        +        +        +        +        |   
+        -30 +--------------------------------------------------------------+   
+            0        10       20       30       40       50       60       70  
+                                       lg(value)                               
+                                                                               
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ [K]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/8-ulp[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/8-ulp[01;31m (lab5)[00m$ cd ..
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises[01;31m (lab5)[00m$ cd 9-loop/
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ make
+cc -g -Wall -std=c11    loop.c   -o loop
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop [K]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+64
+loop exited with x = 2064
+32768
+loop exited with x = 34768
+2
+loop exited with x = 2002
+1024
+loop exited with x = 3024
+1024.0
+loop exited with x = 3024
+40
+loop exited with x = 2040
+4096
+loop exited with x = 6096
+8192
+loop exited with x = 10192
+9999999999999
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+999999999
+loop exited with x = 1000001024
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+9999999999
+loop exited with x = 10000001024
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+99999999999           9999999999999
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+1048576
+loop exited with x = 1050576
+274877906944
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+1073741824
+loop exited with x = 1073742848
+4294967296
+loop exited with x = 4294968320
+34359738368
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+17179869184
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+8589934592
+loop exited with x = 8589935616
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ ./loop 
+17179869184
+^C
+]0;jwong123@remote01: ~/i220b/submit/lab5/exercises/9-loop[01;32mjwong123@remote01[00m:[01;34m~/i220b/submit/lab5/exercises/9-loop[01;31m (lab5)[00m$ exit
+
+Script done on 2020-10-01 15:53:23-04:00 [COMMAND_EXIT_CODE="130"]
