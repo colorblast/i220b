@@ -17,6 +17,12 @@ Bcd
 binary_to_bcd(Binary value, BcdError *error)
 {
   //@TODO
+  Binary copy = value;
+  Bcd accum = 0;
+  for (int i = 0; i < sizeof(Binary) * CHAR_BIT; i++) {
+    digit = copy % 10;
+    
+  }
   return 0;
 }
 
