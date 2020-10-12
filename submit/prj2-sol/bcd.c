@@ -5,25 +5,41 @@
 #include <limits.h>
 #include <stdio.h>
 
+/* Returns a BCD digit for a given BCD. */
+Bcd get_bcd_digit(Bcd in, int index) {
+  unsigned mask = ((1 << BCD_BITS) - 1) << (index * BCD_BITS);
+  Bcd ret = (in & mask);
+  for (int i = 0; i < (index * BCD_BITS); i++) {
+    ret /= 2;
+  }
+  return ret; /// 2;
+  //return in >> ((MAX_BCD_DIGITS - index - 1) * BCD_BITS) << (index * BCD_BITS) >> (index * BCD_BITS);
+}
+
 /** Return BCD encoding of binary (which has normal binary representation).
  *
  *  Examples: binary_to_bcd(0xc) => 0x12;
  *            binary_to_bcd(0xff) => 0x255
  *
- *  If error is not NULL, sets *error to OVERFLOW_ERR if binary is too
+ *  If error is not NULL, sets *error to OVERFLOW_ERR if binary is too\
  *  big for the Bcd type, otherwise *error is unchanged.
  */
 Bcd
 binary_to_bcd(Binary value, BcdError *error)
 {
-  //@TODO
-  Binary copy = value;
+  // grabs the last digit from the bcd and formats appropriately
+  Binary copy = value; // avoid side effects
   Bcd accum = 0;
-  for (int i = 0; i < sizeof(Binary) * CHAR_BIT; i++) {
-    digit = copy % 10;
-    
+  unsigned int length = 1;
+  while (copy) {
+    length++;
+    if (length - 1 > MAX_BCD_DIGITS) {
+      *error = OVERFLOW_ERR;
+    }
+    accum |= ((copy % 10) << ((length - 2) * BCD_BITS));
+    copy /= 10;
   }
-  return 0;
+  return accum;
 }
 
 /** Return binary encoding of BCD value bcd.
@@ -38,8 +54,30 @@ binary_to_bcd(Binary value, BcdError *error)
 Binary
 bcd_to_binary(Bcd bcd, BcdError *error)
 {
-  //@TODO
-  return 0;
+  Binary ret = 0;
+  int first_int_flag = 1;
+  printf("bcd: %llu\n", bcd);
+  // for(int i = 0; i < MAX_BCD_DIGITS; i++) { // account for endianness
+  for(int i = MAX_BCD_DIGITS - 1; i >= 0; i--) {
+    Bcd digit = get_bcd_digit(bcd, i);
+    printf("what is i: %d\n", i);
+    printf("hello %d\n", digit);
+    printf("hex %04x\n", digit);
+    if (digit >= 10) {
+      *error = BAD_VALUE_ERR;
+    } else {
+      if (first_int_flag) {
+        ret = digit;
+        first_int_flag = 0;
+      } else {
+        ret *= 10;
+        ret += digit;
+      }
+    }
+    printf("ret: %llu\n", ret);
+  }
+  printf("-----\n");
+  return ret;
 }
 
 /** Return BCD encoding of decimal number corresponding to string s.
